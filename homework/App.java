@@ -18,7 +18,7 @@ public class App {
         int input2 = Integer.parseInt(sc.nextLine());
 
         System.out.print("사칙연산 기호를 입력하세요: ");
-        // 사칙연산 기호를 적합한 타입으로 선언한 변수에 저장합니다.
+        // 사칙연산 기호를 적합한 타입으로 선언한 변수에 저장합니다. dddd
 
         String input3= sc.nextLine();
 
