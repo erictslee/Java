@@ -1,97 +1,74 @@
 package homework;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
-import static java.awt.SystemColor.text;
+import java.util.*;
 
 public class App {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int[] intArray= new int[10];
-        int currentIndex=0; //현재 배열에 저장된 요소의 개수
-        int answer = 0;
-        int count=1;
+        Scanner scanner = new Scanner(System.in);
 
-        while(true) {
+        int result = 0;
+        List<Integer> results = new ArrayList<>();
 
-            System.out.println("첫 번째 숫자를 입력하세요 :");
-            Integer input1 = sc.nextInt();
+
+        while (true) {
+
+            System.out.println("첫 번째 숫자를 입력하세요 : ");
+            int input1 = scanner.nextInt();
 
             System.out.println("두 번째 숫자를 입력하세요 :");
-            Integer input2 = sc.nextInt();
-
+            int input2 = scanner.nextInt();
 
             System.out.println("사칙연산 기호를 입력하세요 :");
-            String input3 = sc.next();
+            String input3 = scanner.next();
 
-            System.out.println("count : "+count);
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            String input4 = sc.next();
-
+            String input4 = scanner.next();
 
 
             if (input4.equals("exit")) {
                 break;
             }
 
-
-
             switch (input3) {
 
-                case "+":
-                    answer = input1 + input2;
-                    if(currentIndex < intArray.length) {
-                        intArray[currentIndex] = answer;
-                        count++;
-                    }else {
-
-                        System.out.println("배열이 가득 찼습니다.");
-                    }
+                case "+": {
+                    result = input1 + input2;
                     break;
+                }
 
-                case "-":
-                    answer = input1 - input2;
-                    if(currentIndex < intArray.length) {
-                        intArray[currentIndex] = answer;
-                        count++;
-                    }else {
-
-                        System.out.println("배열이 가득 찼습니다.");
-                    }
-                     break;
-
-                case "*":
-                    answer = input1 * input2;
-                    if(currentIndex < intArray.length) {
-                        intArray[currentIndex] = answer;
-                        count++;
-                    }else {
-
-                        System.out.println("배열이 가득 찼습니다.");
-                    }
+                case "-": {
+                    result = input1 - input2;
                     break;
+                }
 
-                case "/":
-                    answer = input1 / input2;
-                    if(currentIndex < intArray.length) {
-                        intArray[currentIndex] = answer;
-                        count++;
-                    }else {
-
-                        System.out.println("배열이 가득 찼습니다.");
-                    }
+                case "*": {
+                    result = input1 * input2;
                     break;
+                }
 
+                case "/": {
+                    result = input1 / input2;
+                    break;
+                }
+                default:
+                    System.out.println("올바른 접근이 아닙니다.");
+
+                    break;
 
 
             }
 
+            System.out.println("결과 : " + result);
+            results.add(result);
+
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            if (Objects.equals(scanner.next(), "remove")) {
+                results.remove(0);
+
+            }
+            System.out.println("결과 저장소 : " + results);
+
         }
-
-
     }
-
 }
-
