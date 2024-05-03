@@ -7,7 +7,7 @@ public class App {
         Scanner sc=new Scanner(System.in);
         Calculator calculator=new Calculator();
 
-        int index=0;
+        int index=0; //
         while (true){
 
         System.out.println("첫 번째 숫자를 입력하세요 : ");
